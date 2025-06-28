@@ -38,8 +38,14 @@ while running:
             else:
                 color = "#008000"
             pygame.draw.polygon(screen, color,  [(8+(i-1)*88, 8+(j-1)*88), (96+(i-1)*88, 8+(j-1)*88), (96+(i-1)*88, 96+(j-1)*88), (8+(i-1)*88, 96+(j-1)*88)])
-
-
+            if thelist[8*(j-1)+i-1]==1:
+                rect = Headimg.get_rect()
+                rect.topleft = (8+(i-1)*88, 8+(j-1)*88) 
+                screen.blit(Headimg, rect)
+            else:
+                rect = Tailimg.get_rect()
+                rect.topleft = (8+(i-1)*88, 8+(j-1)*88) 
+                screen.blit(Tailimg, rect)
     keys = pygame.key.get_pressed()
     if keys[pygame.K_w]:
         player_pos.y -= 300 * dt
