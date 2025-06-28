@@ -9,13 +9,16 @@ clock = pygame.time.Clock()
 running = True
 dt = 0
 thelist = []
-os.system("./main.exe")
+os.system(".\winMain.exe")
 file = open("main.txt", "r")
 content = file.read()
 ans = int(content[0])*10+int(content[1])
-for k in range(4, 67):
-    list.append(int(content[k]))
+for k in range(3, 67):
+    thelist.append(int(content[k]))
 file.close()
+print(thelist)
+Headimg = pygame.image.load("Head.png")
+Tailimg = pygame.image.load("Tail.png")
 
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 
