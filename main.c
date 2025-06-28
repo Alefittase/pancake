@@ -18,13 +18,12 @@ int main(){
         if(!(parity[i]&1)) ans+=k;
         k/=2;
     }
-    for(int i=0; i<64; i++){
-        printf("%d ",board[i]);
-        if(i%8==7) printf("\n");
-    }
-    printf("\nGuess: ");
-    scanf("%d", &guess);
-    if(guess==ans) printf("YOU WON!\n");
-    else printf("YOU LOST!\nThe answer is %d\n", ans);
+    FILE *fptr;
+    fptr=fopen("./main.txt","w");
+    if(ans<10) fprintf(fptr,"%d", 0);
+    fprintf(fptr,"%d ", ans);
+    for(int i=0; i<64; i++)
+        fprintf(fptr,"%d",board[i]);
+    fclose(fptr);
     return 0;
 }
