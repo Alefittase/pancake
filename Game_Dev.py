@@ -19,16 +19,19 @@ file.close()
 print(thelist)
 Headimg = pygame.image.load("Head.png")
 Tailimg = pygame.image.load("Tail.png")
-
+i_ans = ans/8+1
+j_ans = ans%8+1
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
-
+button_rect = pygame.Rect(8+(i_ans-1)*88, 8+(j_ans-1)*88, 88 , 88)
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            if button_rect.collidepoint(pygame.mouse.get_pos()):
+                print("Button clicked!")
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("black")
     for i in range(1,9):
