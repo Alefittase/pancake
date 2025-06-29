@@ -1,1 +1,0 @@
-The logic code in C/C++ are in this folder

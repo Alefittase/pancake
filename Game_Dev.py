@@ -1,4 +1,3 @@
-# Example file showing a circle moving on screen
 import pygame
 import os
 
@@ -25,6 +24,7 @@ j_ans = ans//8+1
 i_ans = ans%8+1
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 button_rect = pygame.Rect(8+(i_ans-1)*88, 8+(j_ans-1)*88, 88 , 88)
+
 while running:
     # poll for events
     # pygame.QUIT event means the user clicked X to close your window
@@ -61,8 +61,7 @@ while running:
     pygame.display.flip()
 
     # limits FPS to 60
-    # dt is delta time in seconds since last frame, used for framerate-
-    # independent physics.
+    # dt is delta time in seconds since last frame, used for framerate-independent physics.
     dt = clock.tick(60) / 1000
 
 pygame.quit()
