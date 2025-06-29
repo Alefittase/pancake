@@ -12,6 +12,7 @@ thelist = []
 os.system(".\winMain.exe")
 file = open("main.txt", "r")
 content = file.read()
+won = 0
 ans = int(content[0])*10+int(content[1])
 for k in range(3, 67):
     thelist.append(int(content[k]))
@@ -19,8 +20,9 @@ file.close()
 print(thelist)
 Headimg = pygame.image.load("Head.png")
 Tailimg = pygame.image.load("Tail.png")
-i_ans = ans/8+1
-j_ans = ans%8+1
+Keyimg = pygame.image.load("Key.png")
+j_ans = ans//8+1
+i_ans = ans%8+1
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
 button_rect = pygame.Rect(8+(i_ans-1)*88, 8+(j_ans-1)*88, 88 , 88)
 while running:
@@ -31,7 +33,8 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             if button_rect.collidepoint(pygame.mouse.get_pos()):
-                print("Button clicked!")
+                print("YOu won")
+                won =1
     # fill the screen with a color to wipe away anything from last frame
     screen.fill("black")
     for i in range(1,9):
@@ -49,16 +52,11 @@ while running:
                 rect = Tailimg.get_rect()
                 rect.topleft = (8+(i-1)*88, 8+(j-1)*88) 
                 screen.blit(Tailimg, rect)
-    keys = pygame.key.get_pressed()
-    if keys[pygame.K_w]:
-        player_pos.y -= 300 * dt
-    if keys[pygame.K_s]:
-        player_pos.y += 300 * dt
-    if keys[pygame.K_a]:
-        player_pos.x -= 300 * dt
-    if keys[pygame.K_d]:
-        player_pos.x += 300 * dt
-
+    if won:
+        pygame.draw.polygon(screen, "#000000",  [(8+(i_ans-1)*88, 8+(j_ans-1)*88), (96+(i_ans-1)*88, 8+(j_ans-1)*88), (96+(i_ans-1)*88, 96+(j_ans-1)*88), (8+(i_ans-1)*88, 96+(j_ans-1)*88)])
+        rect = Keyimg.get_rect()
+        rect.topleft = (8+(i_ans-1)*88, 8+(j_ans-1)*88) 
+        screen.blit(Keyimg, rect)
     # flip() the display to put your work on screen
     pygame.display.flip()
 
