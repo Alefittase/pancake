@@ -9,6 +9,7 @@ running = True
 dt = 0
 thelist = []
 os.system(".\winMain.exe")
+# os.system("./main.exe")
 file = open("main.txt", "r")
 content = file.read()
 won = 0
@@ -17,9 +18,9 @@ for k in range(3, 67):
     thelist.append(int(content[k]))
 file.close()
 print(thelist)
-Headimg = pygame.image.load("Head.png")
-Tailimg = pygame.image.load("Tail.png")
-Keyimg = pygame.image.load("Key.png")
+Headimg = pygame.image.load("rsc/Head.png")
+Tailimg = pygame.image.load("rsc/Tail.png")
+Keyimg = pygame.image.load("rsc/Key.png")
 j_ans = ans//8+1
 i_ans = ans%8+1
 player_pos = pygame.Vector2(screen.get_width() / 2, screen.get_height() / 2)
