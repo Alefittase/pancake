@@ -9,7 +9,7 @@ running = True
 dt = 0
 end= 0
 thelist = []
-os.system(".\winMain.exe")
+os.system(r".\winMain.exe")
 # os.system("./main.exe")
 file = open("main.txt", "r")
 content = file.read()
