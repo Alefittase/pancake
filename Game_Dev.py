@@ -1,18 +1,19 @@
 import pygame
 import os
-
 # pygame setup
 pygame.init()
-screen = pygame.display.set_mode((720, 720))
+screen = pygame.display.set_mode((720, 740))
 clock = pygame.time.Clock()
+font = pygame.font.SysFont(None, 30)
 running = True
 dt = 0
+end= 0
 thelist = []
 os.system(".\winMain.exe")
 # os.system("./main.exe")
 file = open("main.txt", "r")
 content = file.read()
-won = 0
+won = 0.5
 ans = int(content[0])*10+int(content[1])
 for k in range(3, 67):
     thelist.append(int(content[k]))
@@ -34,10 +35,9 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             if button_rect.collidepoint(pygame.mouse.get_pos()):
-                print("YOu won")
                 won =1
-    # fill the screen with a color to wipe away anything from last frame
-    screen.fill("black")
+            else:
+                won = 0
     for i in range(1,9):
         for j in range(1,9):
             if ((i+j)%2==0):
@@ -53,11 +53,19 @@ while running:
                 rect = Tailimg.get_rect()
                 rect.topleft = (8+(i-1)*88, 8+(j-1)*88) 
                 screen.blit(Tailimg, rect)
-    if won:
+    if end:
+        pygame.time.wait(3000)
+        running = 0
+    if won==1:
         pygame.draw.polygon(screen, "#000000",  [(8+(i_ans-1)*88, 8+(j_ans-1)*88), (96+(i_ans-1)*88, 8+(j_ans-1)*88), (96+(i_ans-1)*88, 96+(j_ans-1)*88), (8+(i_ans-1)*88, 96+(j_ans-1)*88)])
         rect = Keyimg.get_rect()
         rect.topleft = (8+(i_ans-1)*88, 8+(j_ans-1)*88) 
         screen.blit(Keyimg, rect)
+        screen.blit(font.render('You Won!',True,"#FFFFFF"),(323.5,720))
+        end = 1
+    if won==0:
+        screen.blit(font.render('You Lost!',True,"#FFFFFF"),(321,720))
+        end = 1
     # flip() the display to put your work on screen
     pygame.display.flip()
 
