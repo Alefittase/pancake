@@ -1,1 +1,1 @@
-# pancake
+#How to run the game
