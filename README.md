@@ -5,6 +5,7 @@
 In this project, we created a game version of the famous chessboard problem. This problem has a beautiful mathematical solution and it has a relation to the information theory. For an introduction to the problem see these two videos:
 
 [The impossible chessboard puzzle](https://youtu.be/wTJI_WuZSwE?si=rGebZSKBCutLFXTd)
+
 [The almost impossible chessboard puzzle](https://youtu.be/as7Gkm7Y7h4?si=uADsswiq5Y3Kmymo)
 
 The solution that we used is explained completely in this repo:
