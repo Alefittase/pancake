@@ -1,5 +1,4 @@
 # The Impossible Chessboard Game
----
 
 ### Overview
 
